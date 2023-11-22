@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "181733256915",
+    "project_id": "jym-test",
+    "storage_bucket": "jym-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:181733256915:android:8cff74971a621882b5ae26",
+        "android_client_info": {
+          "package_name": "com.example.gym_mngmnt_new"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_5KmNrsqcfljiI3K9aAkXRkCp38zxLWs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
