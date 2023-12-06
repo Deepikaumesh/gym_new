@@ -15,6 +15,7 @@ import 'Member_Mark_Attendance_Page_Test2.dart';
 import 'Member_View_Payment_Details_Page.dart';
 import 'Member_physic.dart';
 import 'chatpage_Member.dart';
+import 'Diet_Plan_videos/Diet_PLans_video_entry_page.dart';
 
 
 class memberhome extends StatefulWidget {
@@ -123,11 +124,16 @@ class _memberhomeState extends State<memberhome> {
 
                 accountEmail: Text("${email_get.toString()}"),
                 currentAccountPictureSize: Size.square(50),
-                currentAccountPicture: CircleAvatar(
-                  backgroundImage: NetworkImage(member_Image), radius: 25,
+                currentAccountPicture: StreamBuilder<Object>(
+                  stream: null,
+                  builder: (context, snapshot) {
+                    return CircleAvatar(
+                      backgroundImage: NetworkImage(member_Image), radius: 25,
 
 
-                ), //UserAccountDrawerHeader
+                    );
+                 }
+                ), //User
               ),
             ), //DrawerHeader
 
@@ -225,7 +231,11 @@ class _memberhomeState extends State<memberhome> {
                     foregroundColor: MaterialStateProperty.all(Colors.white),
                     backgroundColor: MaterialStateProperty.all(Colors.black),
                     minimumSize: MaterialStateProperty.all(Size(350, 50))),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Diet_Plans_video_Entry_page()));
+
+
+                },
                 child: Text("Diet Plans Videos")),
             SizedBox(
               height: 20,

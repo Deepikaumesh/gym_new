@@ -37,12 +37,14 @@ class _trainerrhomeState extends State<trainerrhome> {
   @override
   void initState() {
     setState(() {
+
       email_get;
-      _calculation;
-      trainer_name;
-      trainer_Image;
+   //   _calculation;
+      trainer_name='';
+      trainer_Image='';
     });
     getDoc_name();
+
 
     // TODO: implement initState
     super.initState();
@@ -100,9 +102,14 @@ class _trainerrhomeState extends State<trainerrhome> {
                     List<Widget> children;
                     if (snapshot.hasData) {
                       children = <Widget>[
-                        Text(
-                          "${trainer_name}",
-                          style: TextStyle(fontSize: 20, color: Colors.white),
+                        StreamBuilder<Object>(
+                          stream: null,
+                          builder: (context, snapshot) {
+                            return Text(
+                              "${trainer_name}",
+                              style: TextStyle(fontSize: 20, color: Colors.white),
+                            );
+                          }
                         ),
                       ];
                     } else if (snapshot.hasError) {
@@ -144,36 +151,41 @@ class _trainerrhomeState extends State<trainerrhome> {
                 // ),
                 accountEmail: Text("${email_get.toString()}"),
                 currentAccountPictureSize: Size.square(50),
-                currentAccountPicture: CircleAvatar(
-                  backgroundImage: NetworkImage(trainer_Image), radius: 25,
+                currentAccountPicture: StreamBuilder<Object>(
+                  stream: null,
+                  builder: (context, snapshot) {
+                    return CircleAvatar(
+                      backgroundImage: NetworkImage(trainer_Image), radius: 25,
 
-                  // currentAccountPicture: StreamBuilder(
-                  //   stream: FirebaseFirestore.instance.collection('Trainer_Add_Data').snapshots(),
-                  //   builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                  //     if (!snapshot.hasData) {
-                  //       return CircularProgressIndicator();
-                  //     }
-                  //
-                  //     return Column(
-                  //       children:
-                  //       snapshot.data!.docs.map((document) {
-                  //
-                  //         return CircleAvatar(backgroundImage: NetworkImage(document['image']),radius: 25,
-                  //         );
-                  //
-                  //
-                  //
-                  //       }).toList(),
-                  //     );
-                  //   },
-                  // ),
-                  // currentAccountPicture: CircleAvatar(
-                  //   backgroundColor: Color.fromARGB(255, 165, 255, 137),
-                  //   child: Text(
-                  //     "A",
-                  //     style: TextStyle(fontSize: 30.0, color: Colors.blue),
-                  //   ), //Text
-                  // ), //circleAvatar
+                      // currentAccountPicture: StreamBuilder(
+                      //   stream: FirebaseFirestore.instance.collection('Trainer_Add_Data').snapshots(),
+                      //   builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                      //     if (!snapshot.hasData) {
+                      //       return CircularProgressIndicator();
+                      //     }
+                      //
+                      //     return Column(
+                      //       children:
+                      //       snapshot.data!.docs.map((document) {
+                      //
+                      //         return CircleAvatar(backgroundImage: NetworkImage(document['image']),radius: 25,
+                      //         );
+                      //
+                      //
+                      //
+                      //       }).toList(),
+                      //     );
+                      //   },
+                      // ),
+                      // currentAccountPicture: CircleAvatar(
+                      //   backgroundColor: Color.fromARGB(255, 165, 255, 137),
+                      //   child: Text(
+                      //     "A",
+                      //     style: TextStyle(fontSize: 30.0, color: Colors.blue),
+                      //   ), //Text
+                      // ), //circleAvatar
+                    );
+                  }
                 ), //UserAccountDrawerHeader
               ),
             ), //DrawerHeader
