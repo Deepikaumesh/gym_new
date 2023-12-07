@@ -49,6 +49,8 @@ dependencies:
   intl:
   youtube_player_flutter: ^8.0.0
   http:
+  lottie:
+
 
 dev_dependencies:
   flutter_test:
@@ -83,6 +85,7 @@ flutter:
     - assets/payment/
     - assets/Gym.png
     - assets/Diet_plan/
+    - animations/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

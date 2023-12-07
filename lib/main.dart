@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'Firebase Multi Login_Gym/Auth/loginn.dart';
+import 'Firebase Multi Login_Gym/member/test_animation.dart';
 import 'edit_profile_test/view_image.dart';
 
 var email_get_test = "trainer@gmail.com";
@@ -75,7 +76,10 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      home:LoginPage(),
+      // home:LoginPage(),
+      home:animation_test(),
+
+      //animation_test
     );
   }
 

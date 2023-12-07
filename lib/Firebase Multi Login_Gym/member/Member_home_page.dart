@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gym_mngmnt_new/Firebase%20Multi%20Login_Gym/member/test_animation.dart';
 import 'package:gym_mngmnt_new/Firebase%20Multi%20Login_Gym/member/video_main_page.dart';
 import 'package:gym_mngmnt_new/Firebase%20Multi%20Login_Gym/member/workout_video_test/video_entry_page.dart';
 
@@ -292,6 +293,22 @@ class _memberhomeState extends State<memberhome> {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>chatpage_Member(email:email_get)));
                 },
                 child: Text("Chat")),
+
+            SizedBox(
+              height: 20,
+            ),
+
+            // ElevatedButton(
+            //     style: ButtonStyle(
+            //         foregroundColor: MaterialStateProperty.all(Colors.white),
+            //         backgroundColor: MaterialStateProperty.all(Colors.black),
+            //         minimumSize: MaterialStateProperty.all(Size(350, 50))),
+            //     onPressed: () {
+            //       Navigator.push(context, MaterialPageRoute(builder: (context)=>animation_test()));
+            //     },
+            //     child: Text("Chat")),
+
+            //AlignAnimationExample
 
 
 
