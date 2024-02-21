@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:full_screen_image/full_screen_image.dart';
 import 'package:intl/intl.dart';
 
 import 'View_Member_Attendance_history.dart';
@@ -102,9 +103,12 @@ class _View_Trainer_AttendanceState extends State<View_Trainer_Attendance> {
                                   //   ),
                                   // )
                                   ListTile(
-                                      leading: CircleAvatar(
-                                        backgroundImage:
-                                            NetworkImage(document['image']),
+                                      leading: FullScreenWidget(
+                                        disposeLevel: DisposeLevel.High,
+                                        child: CircleAvatar(
+                                          backgroundImage:
+                                              NetworkImage(document['image']),
+                                        ),
                                       ),
                                     subtitle: Text("Present",style: TextStyle(fontSize: 13,color: Colors.teal,),),
                                     title:  Text(document['Name'],style: TextStyle(fontSize: 25),),

@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:full_screen_image/full_screen_image.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gym_mngmnt_new/main.dart';
 import 'package:intl/intl.dart';
 
-import 'Owner_Update_Product.dart';
-
-class Owner_Upate_Display_Product extends StatefulWidget {
+class Owner_Display_Member_fees extends StatefulWidget {
   @override
-  State<Owner_Upate_Display_Product> createState() => _Owner_Upate_Display_ProductState();
+  State<Owner_Display_Member_fees> createState() => _Owner_Display_Member_feesState();
 }
 
-class _Owner_Upate_Display_ProductState extends State<Owner_Upate_Display_Product> {
+class _Owner_Display_Member_feesState extends State<Owner_Display_Member_fees> {
 
   CollectionReference users = FirebaseFirestore.instance.collection(
-      'Product Data');
+      'Fee_Payment');
 
   var current;
 
@@ -39,13 +37,13 @@ class _Owner_Upate_Display_ProductState extends State<Owner_Upate_Display_Produc
         toolbarHeight: 100,
         backgroundColor: Colors.grey.shade600,
         title: Text(
-          "Update Product Details",
+          "Member Fee Details",
           style: TextStyle(fontSize: 25),
         ),
       ),
       body: StreamBuilder(
 
-        stream: FirebaseFirestore.instance.collection('Product Data')
+        stream: FirebaseFirestore.instance.collection('Fee_Payment')
             .snapshots(),
 
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -63,23 +61,55 @@ class _Owner_Upate_Display_ProductState extends State<Owner_Upate_Display_Produc
               return Column(
                 children: [
                   ListTile(
-                    leading: FullScreenWidget(
-                      disposeLevel: DisposeLevel.High,
-                      child: CircleAvatar(
-                        backgroundImage:
-                        NetworkImage(document['image']),
-                      ),
-                    ),
+                    // leading: CircleAvatar(
+                    //   backgroundImage:
+                    //   NetworkImage(document['image']),
+                    // ),
                     title: Text(document['name']),
-                    subtitle: Text(document['price'], style: TextStyle(
-                        color: Colors.teal),),
-                    trailing:GestureDetector(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Owner_Update_Product(
-                            id: document.id, name: document['name'], image: document['image'], price: document['price'],)));
-                        },
-                        child: Icon(Icons.edit,color: Colors.green.shade900,)),
+                    subtitle:Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+
+                        Row(
+
+                          children: [
+                            Text("Date:",style: TextStyle(fontWeight: FontWeight.bold),),
+                            Text(document['Date'], style: TextStyle(
+                                color: Colors.orange),),
+                          ],
+                        ),
+                        Row(
+
+                          children: [
+                            Text("Phone:",style: TextStyle(fontWeight: FontWeight.bold),),
+                            Text(document['phone'], style: TextStyle(
+                                color: Colors.blue),),
+                          ],
+                        ),
+                        Row(
+
+                          children: [
+                           Text("Amount:",style: TextStyle(fontWeight: FontWeight.bold),),
+                            Text(document['amount'], style: TextStyle(
+                                color: Colors.green),),
+                          ],
+                        ),
+
+
+                      ],
+                    ),
+
                   ),
+                  // custom_listtile(
+                  //   document['name'],
+                  //   document['image'],
+                  //   document['price'],
+                  //   document['address'],
+                  //   document['phone'],
+                  //   //document['image'],
+                  //
+                  //
+                  // ),
 
                    Divider(thickness: 2,),
                 ],
@@ -172,6 +202,8 @@ class _Owner_Upate_Display_ProductState extends State<Owner_Upate_Display_Produc
 
     );
   }
+
+
 
 
 }

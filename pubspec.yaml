@@ -50,6 +50,8 @@ dependencies:
   youtube_player_flutter: ^8.0.0
   http:
   lottie:
+  full_screen_image:
+
 
 
 dev_dependencies:

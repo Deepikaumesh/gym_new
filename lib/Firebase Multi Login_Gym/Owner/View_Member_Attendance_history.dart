@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:full_screen_image/full_screen_image.dart';
 import 'package:intl/intl.dart';
 
 class View_Attendance_history extends StatefulWidget {
@@ -61,9 +62,12 @@ var notcurrent;
               return Column(
                 children: [
                   ListTile(
-                    leading: CircleAvatar(
-                      backgroundImage:
-                      NetworkImage(document['image']),
+                    leading: FullScreenWidget(
+                      disposeLevel: DisposeLevel.High,
+                      child: CircleAvatar(
+                        backgroundImage:
+                        NetworkImage(document['image']),
+                      ),
                     ),
                     title: Text(document['Name']) ,
                     trailing:Text(document['Date'],style: TextStyle(color: Colors.teal),) ,

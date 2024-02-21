@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:full_screen_image/full_screen_image.dart';
 import 'package:gym_mngmnt_new/main.dart';
 import 'package:intl/intl.dart';
 
@@ -135,14 +136,17 @@ class _View_Member_detailsState extends State<View_Member_details> {
               borderRadius: BorderRadius.circular(0.5),
             ),
             contentPadding: const EdgeInsets.symmetric(horizontal: 8.0),
-            leading: Container(
-              width: 70.0,
-              height: 70.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(image),
+            leading: FullScreenWidget(
+              disposeLevel: DisposeLevel.Medium,
+              child: Container(
+                width: 70.0,
+                height: 70.0,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage(image),
+                  ),
                 ),
               ),
             ),

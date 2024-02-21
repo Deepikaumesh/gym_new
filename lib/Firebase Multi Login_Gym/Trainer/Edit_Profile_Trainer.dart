@@ -360,7 +360,7 @@ class _Edit_Profile_TrainerState extends State<Edit_Profile_Trainer> {
                       controller: _phone,
                       keyboardType: TextInputType.number,
                       validator: (value) {
-                        if (value!.isEmpty) {
+                        if (value!.length!=10) {
                           return "Please enter  Phone Number";
                         }
                         return null;

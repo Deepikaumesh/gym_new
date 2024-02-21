@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../main.dart';
 import '../About_Us.dart';
 import '../Auth/loginn.dart';
+import 'Owner_Display_Member_fees.dart';
 import 'Owner_Display_Product.dart';
 import 'Owner_Update_Display_Product.dart';
 import 'Owner_add_Product.dart';
@@ -12,6 +13,7 @@ import 'View_Member_details.dart';
 import 'View_Staff_details.dart';
 import 'View_Trainer_Attendance.dart';
 import 'chatpage_Owner.dart';
+import 'Owner_Display_Sold_Product.dart';
 
 class Owner extends StatefulWidget {
   const Owner({super.key});
@@ -137,6 +139,21 @@ class _OwnerState extends State<Owner> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
+                            builder: (context) => Owner_Display_Member_fees()));
+                  },
+                  child: Text("Member fees")),
+              SizedBox(
+                height: 50,
+              ),
+              ElevatedButton(
+                  style: ButtonStyle(
+                      foregroundColor: MaterialStateProperty.all(Colors.white),
+                      backgroundColor: MaterialStateProperty.all(Colors.black),
+                      minimumSize: MaterialStateProperty.all(Size(350, 50))),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
                             builder: (context) => View_Trainer_Attendance()));
                   },
                   child: Text("Trainer Attendance")),
@@ -173,6 +190,23 @@ class _OwnerState extends State<Owner> {
                     //
                   },
                   child: Text("Display Product")),
+              SizedBox(
+                height: 50,
+              ),
+              ElevatedButton(
+                  style: ButtonStyle(
+                      foregroundColor: MaterialStateProperty.all(Colors.white),
+                      backgroundColor: MaterialStateProperty.all(Colors.black),
+                      minimumSize: MaterialStateProperty.all(Size(350, 50))),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Owner_Display_Sold_Product()));
+
+                    //
+                  },
+                  child: Text("Sold Product Details")),
               SizedBox(
                 height: 50,
               ),

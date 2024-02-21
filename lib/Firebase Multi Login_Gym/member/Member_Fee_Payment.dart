@@ -140,7 +140,7 @@ class _Member_add_DataState extends State<Member_Fee_Payment> {
                       controller: phone,
                       keyboardType: TextInputType.number,
                       validator: (value) {
-                        if (value!.isEmpty) {
+                        if (value!.length!=10) {
                           return "Please enter  phone number";
                         }
                         return null;
