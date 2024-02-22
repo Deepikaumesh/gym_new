@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gym_mngmnt_new/Firebase%20Multi%20Login_Gym/Auth/registerr.dart';
+import 'package:gym_mngmnt_new/Firebase%20Multi%20Login_Gym/Auth/reset_password.dart';
 import '../../main.dart';
 import '../Trainer/trainer_add_data.dart';
 import '../Trainer/trainer_home_page.dart';
@@ -186,7 +187,15 @@ class _LoginPageState extends State<LoginPage> {
                           keyboardType: TextInputType.emailAddress,
                         ),
 
-                        SizedBox(height: 30,),
+                        SizedBox(height: 20,),
+
+                        Padding(
+                          padding: EdgeInsets.only(left: 230),
+                          child: TextButton(onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>ResetPassword()));
+                          }, child: Text("Forgot password?")),
+                        ),
+                        SizedBox(height: 20,),
 
                         SizedBox(
                           height: MediaQuery.of(context).size.height / 15,
@@ -255,6 +264,8 @@ class _LoginPageState extends State<LoginPage> {
                         //         child: CircularProgressIndicator(
                         //       color: Colors.white,
                         //     ))),
+
+
                       ],
                     ),
                   ),

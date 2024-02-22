@@ -1,14 +1,18 @@
+
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gym_mngmnt_new/Firebase%20Multi%20Login_Gym/Trainer/trainer_upload_video.dart';
+import 'package:gym_mngmnt_new/Firebase%20Multi%20Login_Gym/Trainer/utils.dart';
 import '../../../main.dart';
 import '../About_Us.dart';
 import 'Edit_Profile_Trainer.dart';
 import 'Trainer_Mark_Attendance_Page.dart';
 import 'Trainer_chatpage.dart';
 import 'package:gym_mngmnt_new/Firebase Multi Login_Gym/Owner/View_Member_Attendance.dart';
-
+import 'package:video_player/video_player.dart';
 class trainerrhome extends StatefulWidget {
   const trainerrhome({Key? key}) : super(key: key);
 
@@ -17,6 +21,18 @@ class trainerrhome extends StatefulWidget {
 }
 
 class _trainerrhomeState extends State<trainerrhome> {
+
+  String? _videoURL;
+   VideoPlayerController? _controller;
+
+   @override
+   void dispose(){
+     _controller?.dispose();
+     super.dispose();
+   }
+
+
+
   final Future<String> _calculation = Future<String>.delayed(
     const Duration(milliseconds: 5),
     () => 'Data Loaded',
@@ -246,7 +262,7 @@ class _trainerrhomeState extends State<trainerrhome> {
         child: SingleChildScrollView(
           child: Column(children: [
             SizedBox(
-              height: 20,
+              height: 60,
             ),
 
             ElevatedButton(
@@ -265,9 +281,7 @@ class _trainerrhomeState extends State<trainerrhome> {
               height: 60,
             ),
 
-            SizedBox(
-              height: 60,
-            ),
+
             ElevatedButton(
                 style: ButtonStyle(
                     foregroundColor: MaterialStateProperty.all(Colors.white),
@@ -280,6 +294,22 @@ class _trainerrhomeState extends State<trainerrhome> {
                           builder: (context) => Trainer_Mark_Attendance_Page()));
                 },
                 child: Text("Mark ATTENDANCE")),
+
+            SizedBox(
+              height: 60,
+            ),
+            ElevatedButton(
+                style: ButtonStyle(
+                    foregroundColor: MaterialStateProperty.all(Colors.white),
+                    backgroundColor: MaterialStateProperty.all(Colors.black),
+                    minimumSize: MaterialStateProperty.all(Size(300, 100))),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => trainer_upload_video()));
+                },
+                child: Text("UPLOAD VIDEO")),
 
             //  TextButton(onPressed: (){
             //    Navigator.push(context, MaterialPageRoute(builder: (context)=>view_image()));
@@ -336,6 +366,23 @@ class _trainerrhomeState extends State<trainerrhome> {
     }
   }
 
+  //
+  // void _pickVideo() async{
+  //
+  //   _videoURL=pickVideo();
+  //
+  // }
+  // void _initializeVideoPlayer(){
+  //   _controller = VideoPlayerController.file(
+  //
+  //   File(_videoURL))
+  //     // File(_videoURL!))
+  //     //   ..initialize().then((){
+  //     //     setState(() {
+  //     //       _controller.play();
+  //     //     });
+  //     //   });
+  // }
 
 
 }
